@@ -17,6 +17,20 @@ put in the body:
         "professorId": "123",
         "taId": "123",
        }
+       
+### Add Student
+
+Post -> ../webapi/students
+put in the body:
+
+      {
+        "department": "Information Systems",
+        "emailId": "somebody@husky.neu.edu",
+        "firstName": "Husky",
+        "joiningDate": "2018",
+        "lastName": "Northeastern",
+        "studentId": "r0609988"
+     }
 
 ### Register Student for Course
 
