@@ -45,3 +45,14 @@ put the course information in the body:
         "professorId": "123",
         "taId": "123",
        }
+### Post Announcements
+
+Post -> ../webapi/announcements
+
+{
+    "announcementId": "annoucement1599",
+    "announcementText": "Welcome chang",
+    "courseId": "Is5102"
+}
+
+Then all the students that have registered for Is502 will receive the email to notisfy them the announcement!
