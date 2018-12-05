@@ -28,6 +28,7 @@ public class StudentsService {
 		return list;
 	}
 	public Student addStudent(Student stu) {	
+		stu.setRegisteredCourses(new ArrayList<String>());
 		mapper.save(stu);
 		return stu;
 	}

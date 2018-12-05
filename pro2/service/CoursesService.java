@@ -40,6 +40,7 @@ public class CoursesService{
 	public Course addCourse(Course cour) {	
 		CreateTopicResult result = sns.getClient().createTopic(cour.getCourseId());
 		cour.setTopicArn(result.getTopicArn());
+		cour.setRosters(new ArrayList<String>());
 		mapper.save(cour);
 		return cour;
 	}

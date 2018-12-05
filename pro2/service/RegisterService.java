@@ -2,6 +2,8 @@ package pro1.pro2.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+
 import pro1.pro2.datamodel.*;
 public class RegisterService {
 	StudentsService ss = new StudentsService();
@@ -15,16 +17,18 @@ public class RegisterService {
 		Student stu = ss.getStudent(studentId);
 		for(Course course: courses) {
 		    Course courseInDatabase = cs.getCourse(course.getCourseId());
-		    cs.subscribe(stu,course);
 		    if(stu.getRegisteredCourses() == null) {
 		    	stu.setRegisteredCourses(new ArrayList<String>());
 		    }
 		    if(stu.getRegisteredCourses().size()==3) break;
+		    cs.subscribe(stu,course);
 			stu.getRegisteredCourses().add(course.getCourseId());
 			if(courseInDatabase.getRosters() == null) {
 				courseInDatabase.setRosters(new ArrayList<String>());
 			}
 			courseInDatabase.getRosters().add(studentId);
+			ss.updateStudentInformation(stu.getId(), stu);
+			cs.updateCourseInformation(course.getCourseId(), courseInDatabase);
 		}
 		return stu;
 	}
