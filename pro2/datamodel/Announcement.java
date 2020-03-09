@@ -23,6 +23,7 @@ public class Announcement {
 		this.announcementText = announcementText;
 		this.courseId = courseId;
 		String newString = "Adding new string to branch1";
+		String newString2 = "Adding another new string";
 	}
 
 
