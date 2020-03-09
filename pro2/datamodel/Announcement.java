@@ -15,16 +15,18 @@ public class Announcement {
 	private String courseId;
 	private String id;
 	public Announcement() {
-		
+
 	}
-	
+
 	public Announcement(String announcementId, String announcementText, String courseId) {
 		this.announcementId = announcementId;
 		this.announcementText = announcementText;
 		this.courseId = courseId;
+		String newString = "Adding new string to branch1";
+		String newString2 = "Adding another new string";
 	}
-	
-	
+
+
 	@DynamoDBAttribute(attributeName="announcementText")
 	public String getAnnouncementText() {
 		return announcementText;
@@ -55,12 +57,11 @@ public class Announcement {
 	public void setAnnouncementId(String announcementId) {
 		this.announcementId = announcementId;
 	}
-	
-	
+
+
 	@DynamoDBIgnore
 	@Override
-	public String toString() { 
+	public String toString() {
 		return "AnnouncementId="+getAnnouncementId()+"BoardId=" + getCourseId() + ", announcementText=" + getAnnouncementText();
 	}
 }
-
